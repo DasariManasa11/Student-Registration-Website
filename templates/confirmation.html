@@ -1,0 +1,37 @@
+
+
+{% extends "base.html" %}
+
+{% block title %}Registration Confirmation - Student Registration Portal{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-lg-6">
+        <div class="card shadow border-0">
+            <div class="card-header bg-success text-white text-center">
+                <h2 class="card-title mb-0">Registration Successful!</h2>
+            </div>
+            <div class="card-body p-4 text-center">
+                <div class="confirmation-details mb-4">
+                    <h4 class="text-primary">Welcome, {{ first_name }} {{ last_name }}!</h4>
+                    <p class="lead">Your registration has been processed successfully.</p>
+                    
+                    <div class="alert alert-success">
+                        <strong>Registration Details:</strong>
+                        <div class="mt-2">
+                            <p class="mb-1"><strong>Name:</strong> {{ first_name }} {{ last_name }}</p>
+                            <p class="mb-1"><strong>Email:</strong> {{ email }}</p>
+                            <p class="mb-0"><strong>Course:</strong> {{ course }}</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+                    <a href="/" class="btn btn-primary me-md-2">Return to Home</a>
+                    <a href="/students" class="btn btn-outline-primary">View All Students</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
