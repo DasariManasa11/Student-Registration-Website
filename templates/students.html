@@ -1,0 +1,56 @@
+
+
+{% extends "base.html" %}
+
+{% block title %}Registered Students - Student Registration Portal{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h1 class="display-5 fw-bold">Registered Students</h1>
+    <a href="/register" class="btn btn-primary">Register New Student</a>
+</div>
+
+{% if students %}
+<div class="card shadow">
+    <div class="card-header bg-light">
+        <h5 class="card-title mb-0">Total Students: {{ students|length }}</h5>
+    </div>
+    <div class="card-body p-0">
+        <div class="table-responsive">
+            <table class="table table-hover mb-0">
+                <thead class="table-dark">
+                    <tr>
+                        <th>ID</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                        <th>Course</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for student in students %}
+                    <tr>
+                        <td>{{ student[0] }}</td>
+                        <td>{{ student[1] }}</td>
+                        <td>{{ student[2] }}</td>
+                        <td>{{ student[3] }}</td>
+                        <td>{{ student[4] }}</td>
+                        <td>{{ student[5] }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% else %}
+<div class="text-center py-5">
+    <div class="empty-state">
+        <h3>No Students Registered Yet</h3>
+        <p class="text-muted">Be the first to register a student!</p>
+        <a href="/register" class="btn btn-primary btn-lg">Register First Student</a>
+    </div>
+</div>
+{% endif %}
+{% endblock %}
